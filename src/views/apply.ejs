@@ -1,0 +1,15 @@
+<%- include('layout', { title: "Apply for Job", body: `
+    <h2>Apply for <%= job.title %></h2>
+    <form action="/apply/<%= job.id %>" method="POST" enctype="multipart/form-data">
+        <label>Name:</label>
+        <input type="text" name="name" required>
+        
+        <label>Email:</label>
+        <input type="email" name="email" required>
+        
+        <label>Resume:</label>
+        <input type="file" name="resume" required>
+        
+        <button type="submit">Submit Application</button>
+    </form>
+` }) %>
