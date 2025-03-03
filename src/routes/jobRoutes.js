@@ -2,15 +2,20 @@ import express from "express";
 const router = express.Router();
 
 // Render all jobs
-router.get("/", (req, res) => {
-  const jobs = []; // Fetch from database later
-  res.render("jobs", { title: "Job Listings", jobs });
+router.get("/recruiter/dashboard", (req, res) => {
+  const recruiter = { name: "John Doe" }; // Example recruiter data
+  const jobs = [
+    { id: 1, title: "Software Engineer" },
+    { id: 2, title: "Data Scientist" },
+    { id: 3, title: "Product Manager" },
+  ]; // Example job listings
+
+  res.render("recruiter-dashboard", { 
+    title: "Recruiter Dashboard",
+    recruiter, 
+    jobs 
+  });
 });
 
-// Render job details page
-router.get("/:id", (req, res) => {
-  const job = { id: req.params.id, title: "Sample Job", company: "XYZ Corp" };
-  res.render("job-details", { title: "Job Details", job });
-});
 
 export default router;

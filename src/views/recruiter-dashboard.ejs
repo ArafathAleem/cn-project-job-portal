@@ -1,0 +1,15 @@
+<h2>Welcome, <%= recruiter.name %>!</h2>
+<a href="/jobs/new">Post a New Job</a>
+
+<h3>Your Job Listings</h3>
+<ul>
+    <% jobs.forEach(job => { %>
+        <li>
+            <h3><a href="/jobs/<%= job._id %>"><%= job.title %></a></h3>
+            <a href="/jobs/<%= job._id %>/edit">Edit</a> |
+            <a href="/jobs/<%= job._id %>/delete" onclick="return confirm('Are you sure?')">Delete</a>
+        </li>
+    <% }) %>
+</ul>
+<!-- The recruiter dashboard view is a simple list of the jobs that the recruiter has posted. Each job listing includes a link to view the job details, as well as links to edit or delete the job. -->
+<!-- The view is rendered using EJS syntax, which allows for dynamic content to be inserted into the HTML. The recruiter's name is displayed at the top of the page, along with a link to post a new job. -->
