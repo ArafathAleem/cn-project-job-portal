@@ -6,6 +6,7 @@ import path from "path";
 
 import authRoutes from "./src/routes/authRoutes.js";
 import jobRoutes from "./src/routes/jobRoutes.js";
+import applicationRoutes from "./src/routes/applicationRoutes.js"; // Import application routes
 
 dotenv.config(); // Load environment variables
 
@@ -32,6 +33,7 @@ app.use(express.static("src/public")); // Serve static files
 // Routes
 app.use("/", authRoutes);
 app.use("/", jobRoutes);
+app.use("/", applicationRoutes); // Now application routes are included ✅
 
 // Handle 404 (Page Not Found)
 app.use((req, res) => {
