@@ -1,14 +1,13 @@
 import express from "express";
 const router = express.Router();
 
-// Render login page
-router.get("/login", (req, res) => {
-  res.render("login", { title: "Login" });
-});
-
-// Render registration page
+// Define your authentication routes here
 router.get("/register", (req, res) => {
   res.render("register", { title: "Register" });
+});
+
+router.get("/login", (req, res) => {
+  res.render("login", { title: "Login" });
 });
 
 export default router;

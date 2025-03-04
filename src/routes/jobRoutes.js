@@ -2,20 +2,19 @@ import express from "express";
 const router = express.Router();
 
 // Render all jobs
-router.get("/recruiter/dashboard", (req, res) => {
-  const recruiter = { name: "John Doe" }; // Example recruiter data
+router.get("/", (req, res) => {
   const jobs = [
-    { id: 1, title: "Software Engineer" },
-    { id: 2, title: "Data Scientist" },
-    { id: 3, title: "Product Manager" },
-  ]; // Example job listings
-
-  res.render("recruiter-dashboard", { 
-    title: "Recruiter Dashboard",
-    recruiter, 
-    jobs 
-  });
+    { id: 1, title: "Software Engineer", company: "Company A" },
+    { id: 2, title: "Data Scientist", company: "Company B" },
+    { id: 3, title: "Product Manager", company: "Company C" },
+  ]; //job listings
+  res.render("jobs", { title: "Job Listings", jobs });
 });
 
+// Render job details page
+router.get("/:id", (req, res) => {
+  const job = { id: req.params.id, title: "Sample Job", company: "XYZ Corp" }; // Example job details
+  res.render("job-details", { title: "Job Details", job });
+});
 
 export default router;
